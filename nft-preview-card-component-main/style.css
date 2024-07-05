@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root{
+    /* Primary */
+    --Soft-blue: hsl(215, 51%, 70%);
+    --Cyan: hsl(178, 100%, 50%);
+    --Cyan-bg: hsla(178, 100%, 50%, 0.5);
+
+    /* Neutral */
+
+    --Very-dark-blue-main-BG: hsl(217, 54%, 11%);
+    --Very-dark-blue-card-BG: hsl(216, 50%, 16%);
+    --Very-dark-blue-line: hsl(215, 32%, 27%);
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--Very-dark-blue-main-BG);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    color: var(--White);
+}
+
+div{display: flex;}
+
+.card{
+    background-color: var(--Very-dark-blue-card-BG);
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.img-con{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background-image: url(./images/image-equilibrium.jpg);
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.view{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(178, 100%, 50%, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    display: none;
+}
+
+.view svg{
+    width: 50px;
+    height: 50px;
+}
+
+.img-con:hover .view{
+    display: flex;
+}
+
+h2{
+
+    cursor: pointer;
+    font-weight: 600;
+    transition: .3s;
+}
+h2:hover{color: var(--Cyan);}
+
+p{
+    font-weight: 300;
+    color: var(--Soft-blue);
+    font-size: 14px;
+}
+
+.val-dur-con{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.val-dur-con div{
+    gap: 6px;
+}
+
+.value,.duration{
+    justify-content: center;
+    align-items: center;
+}
+
+.value p{color: var(--Cyan);font-weight: 400;}
+
+hr{
+    border: none;
+    background-color: var(--Very-dark-blue-line);
+    height: 1px;
+}
+
+.ava-con{
+    align-items: center;
+}
+
+.ava-con img{
+    width: 30px;
+    border: 1px var(--White) solid;
+    border-radius: 15px;
+}
+.ava-con p{margin: 0.625rem;}
+span{
+    color: var(--White);
+    cursor: pointer; 
+    transition: .3s;
+}
+span:hover{
+    color: var(--Cyan);
+}
