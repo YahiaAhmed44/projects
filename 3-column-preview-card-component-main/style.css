@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+/* font-family: "Lexend Deca", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+/* font-family: "Big Shoulders Display", sans-serif; */
+
+:root{
+    /* Primary */
+
+    --Bright-orange: hsl(31, 77%, 52%);
+    --Dark-cyan: hsl(184, 100%, 22%);
+    --Very-dark-cyan: hsl(179, 100%, 13%);
+    
+    /* Neutral */
+    /* (paragraphs) */
+    --Transparent-white-: hsla(0, 0%, 100%, 0.75);
+    /* (background, headings, buttons) */
+    --Very-light-gray : hsl(0, 0%, 95%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Lexend Deca", sans-serif;
+    background-color: var(--Very-light-gray);
+    color: var(--Transparent-white-);
+    font-size: 15px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.con{
+    height: 500px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+}
+
+.cards{
+    width: 307px;
+    height: 100%;
+    padding: 49px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    position: relative;
+}
+
+.cards h1{
+    font-family: "Big Shoulders Display", sans-serif;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+.cards p{
+    line-height: 1.55rem;
+    color: var(--Transparent-white-);
+}
+
+.card1{
+    background-color: var(--Bright-orange);
+}
+.card2{
+    background-color: var(--Dark-cyan);
+}
+.card3{
+    background-color: var(--Very-dark-cyan);
+}
+
+button{
+    position: absolute;
+    bottom: 49px;
+    border: none;
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 15px;
+    background-color: var(--Very-light-gray);
+    padding: 14px 32px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.b1{
+    color: var(--Bright-orange);
+}
+.b2{
+    color: var(--Dark-cyan);
+}
+.b3{
+    color: var(--Very-dark-cyan);
+}
+.b1:hover{
+    box-shadow: inset 0 0 0 1.5px var(--Very-light-gray);
+    background-color: var(--Bright-orange);
+    color: var(--Very-light-gray);
+}
+.b2:hover{
+    box-shadow: inset 0 0 0 1.5px var(--Very-light-gray);
+    background-color: var(--Dark-cyan);
+    color: var(--Very-light-gray);
+}
+.b3:hover{
+    box-shadow: inset 0 0 0 1.5px var(--Very-light-gray);
+    background-color: var(--Very-dark-cyan);
+    color: var(--Very-light-gray);
+}
