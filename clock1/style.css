@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+    margin: 0;
+  }
+
+  .clock{
+    display: flex;gap: 10px;
+  }
+  .colons{
+    width: 20px;height: 20px;background-color: #ff0000; margin: 60px 40px;box-shadow: 0 60px #ff0000;
+  }
+  .digit {
+    position: relative;
+    width: 100px;
+    height: 180px;
+  }
+  
+  .segment {
+    position: absolute;
+    background-color: #000;
+    clip-path: polygon(15% 0, 85% 0, 97.5% 50%, 85% 100%, 15% 100%, 2.5% 50%);
+    /* transition: background-color 0.3s ease-in-out; */
+  }
+  
+  .segment.on {
+    background-color: #ff0000; 
+  }
+  
+  .segment.top {
+    width: 80px;
+    height: 20px;
+    top: 0;
+    left: 10px;
+  }
+  
+  .segment.middle {
+    width: 80px;
+    height: 20px;
+    top: 80px;
+    left: 10px;
+  }
+  
+  .segment.bottom {
+    width: 80px;
+    height: 20px;
+    bottom: 0;
+    left: 10px;
+  }
+  
+  .segment.top-left {
+    width: 20px;
+    height: 80px;
+    top: 10px;
+    left: 0;
+    clip-path: polygon(50% 2.5%, 100% 15%, 100% 85%, 50% 97.5%, 0% 85%, 0% 15%);
+  }
+  
+  .segment.top-right {
+    width: 20px;
+    height: 80px;
+    top: 10px;
+    right: 0;
+    clip-path: polygon(50% 2.5%, 100% 15%, 100% 85%, 50% 97.5%, 0% 85%, 0% 15%);
+}
+  
+  .segment.bottom-left {
+    width: 20px;
+    height: 80px;
+    bottom: 10px;
+    left: 0;
+    clip-path: polygon(50% 2.5%, 100% 15%, 100% 85%, 50% 97.5%, 0% 85%, 0% 15%);
+  }
+  
+  .segment.bottom-right {
+    width: 20px;
+    height: 80px;
+    bottom: 10px;
+    right: 0;
+    clip-path: polygon(50% 2.5%, 100% 15%, 100% 85%, 50% 97.5%, 0% 85%, 0% 15%);
+  }
+  
