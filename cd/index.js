@@ -10,7 +10,7 @@ function startCountdown() {
     if (countdownTime <= 0) {
         clearInterval(interval);
 
-        window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        window.location.href = 'https://yahiaahmed44.github.io/projects/cd/v.html';
 
     } else {
         countdownTime--;
