@@ -7,36 +7,34 @@
 </head>
 <body>
   <video id="video" autoplay></video>
-  <canvas id="canvas"></canvas>
+  <canvas id="canvas" style="display: none;"></canvas>
   <button id="capture">Extract Text</button>
   <p id="output"></p>
-  
+
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js"></script>
   <script>
     const video = document.getElementById("video");
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     const output = document.getElementById("output");
-  
-    // Start the camera
-    navigator.mediaDevices.getUserMedia({ video: true })
+
+    // Use the back camera
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: { exact: "environment" } } })
       .then((stream) => {
         video.srcObject = stream;
       })
       .catch((err) => console.error("Camera access error:", err));
-  
+
     document.getElementById("capture").addEventListener("click", () => {
-      // Capture a frame from the video
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-  
-      // Convert frame to Base64
+
       canvas.toBlob((blob) => {
         const reader = new FileReader();
         reader.readAsDataURL(blob);
         reader.onload = () => {
-          Tesseract.recognize(reader.result, "ara+fra+eng", {logger: (m) => console.log(m),})
+          Tesseract.recognize(reader.result, "ara+fra+eng")
             .then(({ data: { text } }) => {
               output.textContent = text;
             })
@@ -45,7 +43,6 @@
       });
     });
   </script>
-  
 
 </body>
 </html>
