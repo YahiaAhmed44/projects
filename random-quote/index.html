@@ -121,7 +121,7 @@
         function generateQ() {
             const myQuote = document.getElementById("quote");
             const myAuthor = document.getElementById("author");
-            fetch("numbered_random_quotes_100.json")
+            fetch("quotes_100.json")
             .then(res => res.json())
             .then(data => {
                 const randIndex = Math.floor(Math.random() * data.length);
