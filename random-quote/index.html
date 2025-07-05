@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random quotes</title>
+    <script src="https://kit.fontawesome.com/1b1afca0f2.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        body{
+            margin: 0;padding: 0;
+            box-sizing: border-box;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #000;
+            color: #fff;
+        }
+        i{
+            font-size: 80px;
+            color: #ffc400;
+        }
+        .container{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-direction: column;
+            height: 480px;
+            width: 520px;
+            background-color: #000;
+            border-radius: 20px;
+            transition: all .3s ease;
+            animation: floatUpDown 3s ease-in-out infinite;
+            box-shadow: 0px 0px 100px 10px #383838;
+        }
+        .container:hover{
+            background-color: #1d1d1d;
+            border: #949494 solid 1px;
+            box-shadow: 0px 0px 0 #383838;
+        }
+        .box{
+            padding: 10px;
+            height: 150px;
+            min-width: 420px;
+            background-color: #1d1d1d;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+        .box:hover{
+            height: 170px;
+            border: #b1b1b1 solid 1px;
+        }
+        .box #author{
+            align-self: flex-end;
+        }
+        #quote-btn{
+            background-color: #c49600;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+        }
+        #quote-btn:hover{
+            background-color: #ffecac;
+            color: #3d2f00;
+        }
+
+        @keyframes floatUpDown {
+            0%   { transform: translateY(0); }
+            50%  { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+<body>
+    <div class="container">
+        <i class="fa-solid fa-quote-left"></i>
+        <div class="box" onclick="saveAsImage()" id="capture">
+            <p id="quote">"Click the button for the quote."</p>
+            <p id="author">— Ahmed Yahia</p>
+        </div>
+        <button id="quote-btn">Random Quote</button>
+    </div>
+    <script>
+        function generateQ() {
+            const myQuote = document.getElementById("quote");
+            const myAuthor = document.getElementById("author");
+            fetch("numbered_random_quotes_100.json")
+            .then(res => res.json())
+            .then(data => {
+                const randIndex = Math.floor(Math.random() * data.length);
+                const randQuote = data[randIndex];
+                myQuote.textContent = `"${randQuote.quote}"`;
+                myAuthor.textContent = `— ${randQuote.author}`;
+            })
+            .catch(err => console.error(err));
+        }
+
+        function saveAsImage() {
+            const element = document.getElementById("capture");
+            const myQuote = document.getElementById("quote");
+            const myAuthor = document.getElementById("author");
+        
+            html2canvas(element).then(canvas => {
+            const link = document.createElement("a");
+            link.download = `${myQuote.textContent}${myAuthor.textContent}.png`;
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+            });
+        }
+
+
+        document.getElementById("quote-btn").addEventListener("click", () => {
+            generateQ();
+        });
+        
+        
+        
+    </script>
+</body>
+</html>
