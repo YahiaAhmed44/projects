@@ -79,6 +79,33 @@
             50%  { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
+        @media (max-width: 600px) {
+            .container {
+                width: 80%;
+                height: 420px;
+                padding: 20px;
+            }
+        
+            .box {
+                min-width: unset;
+                width: 90%;
+                height: auto;
+                word-wrap: break-word;
+                padding: 15px;
+            }
+        
+            i {
+                font-size: 50px;
+            }
+        
+            #quote-btn {
+                width: 50%;
+            }
+        
+            p {
+                text-align: center;
+            }
+        }
     </style>
 <body>
     <div class="container">
